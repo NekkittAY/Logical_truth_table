@@ -7,7 +7,7 @@ for i in sym1:
 
 def Count(sym):
     res=[]
-    for i in range(len(sym)*len(sym)-1):
+    for i in range(len(sym)*len(sym)):
         s=str(bin(i))
         temp=""
         temp+=s[s.index("b")+1:]
@@ -33,4 +33,11 @@ def calc(log,sym,Bin):
         res.append([bin_d,result])
     return res
     
-print(calc(log,sym,Count(sym)))
+res=calc(log,sym,Count(sym))
+
+for j in res:
+    temp=""
+    for k in j[0].values():
+        temp+=str(k)+" "
+    temp+=str(j[1])
+    print(temp)
