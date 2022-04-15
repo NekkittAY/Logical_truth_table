@@ -55,11 +55,3 @@ for j in res:
         temp+=str(k)+" "
     temp+=str(j[1])
     print(temp)
-res=calc(log,sym,Count(sym))
-
-for j in res:
-    temp=""
-    for k in j[0].values():
-        temp+=str(k)+" "
-    temp+=str(j[1])
-    print(temp)
