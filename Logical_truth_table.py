@@ -7,7 +7,7 @@ for i in sym1:
 
 def Count(sym):
     res=[]
-    for i in range(len(sym)*len(sym)):
+    for i in range(2**len(sym)):
         s=str(bin(i))
         temp=""
         temp+=s[s.index("b")+1:]
