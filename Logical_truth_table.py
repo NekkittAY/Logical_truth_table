@@ -25,22 +25,29 @@ def calc(log,sym,Bin):
             num+=1 
         temp=""
         cnt=0
+        cn=0
         for j in log:
             if j.isalpha():
                 temp+=bin_d[j]
             elif j=="#":
-                temp+="eval('not"
+                temp+="(not"
+                cn+=1
             elif j=="(":
                 temp+=j
-                cnt+=1 
+                if cn>0:
+                    cnt+=1 
             elif j==")":
-                if cnt==1:
-                    temp+=j
-                    temp+="')"
-                    cnt-=1
+                if cn>0:
+                    if cnt==1:
+                        temp+=j
+                        temp+=")"
+                        cnt-=1
+                        cn-=1
+                    else:
+                        temp+=j
+                        cnt-=1
                 else:
-                    temp+=j
-                    cnt-=1
+                    temp+=j 
             else:
                 temp+=j
         result=eval(temp)
